@@ -1,0 +1,373 @@
+body {
+    font-family: 'Space Mono', monospace;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #222;
+    color: #e0e0e0;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: #ff6b6b;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+    color: #ff6b6b;
+    margin-top: 1em;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #ff6b6b;
+    margin-top: 1em;
+}
+
+h4 {
+    font-size: 1.2em;
+    color: #ff6b6b;
+}
+
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4 {
+    color: #ff9e9e;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 600px) {
+    .input-container {
+        flex-direction: row;
+    }
+    
+    .input-container input {
+        flex-grow: 1;
+    }
+}
+
+input, button {
+    font-family: 'Space Mono', monospace;
+    padding: 10px;
+    margin: 0;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    white-space: nowrap;
+}
+
+button:hover {
+    background-color: #ff5252;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.dark-mode button {
+    background-color: #ff9e9e;
+    color: #222;
+}
+
+.dark-mode button:hover {
+    background-color: #ffb8b8;
+}
+
+#bandLoreOutput {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+    overflow-wrap: break-word;
+}
+
+.dark-mode #bandLoreOutput {
+    background-color: #333;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+}
+
+code {
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9em;
+    color: #ff6b6b;
+    word-wrap: break-word;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.dark-mode code {
+    background-color: #444;
+    color: #ff9e9e;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.controls button {
+    flex: 1;
+    min-width: 120px;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: rotate(30deg) scale(1.1);
+}
+
+.loading {
+    text-align: center;
+    margin: 20px 0;
+    color: #888;
+}
+
+.loading-text {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.loading-animation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.circle {
+    width: 12px;
+    height: 12px;
+    background-color: #ff6b6b;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.circle:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.circle:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.dark-mode .loading {
+    color: #aaa;
+}
+
+.dark-mode .circle {
+    background-color: #ff9e9e;
+}
+
+/* Ensure proper list styling */
+ul, ol {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Ensure tracklist displays properly */
+#bandLoreOutput ol {
+    padding-left: 20px;
+    list-style-type: decimal;
+}
+
+#bandLoreOutput ol li {
+    padding-left: 5px;
+    margin-bottom: 8px;
+}
+
+/* Album cover styles */
+.album-cover {
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.album-cover-title {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    padding: 10px;
+    font-size: 1.2em;
+    z-index: 10;
+}
+
+.album-cover-band {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    padding: 10px;
+    font-size: 1em;
+    z-index: 10;
+}
+
+/* Audio player styles */
+.audio-player {
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.dark-mode .audio-player {
+    background-color: #333;
+}
+
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.audio-controls button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+.audio-visualizer {
+    height: 60px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.visualizer-bar {
+    width: 4px;
+    background-color: #ff6b6b;
+    border-radius: 2px;
+    transition: height 0.1s;
+}
+
+.dark-mode .visualizer-bar {
+    background-color: #ff9e9e;
+}
+
+/* Share options styles */
+#shareOptionsContainer {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.dark-mode #shareOptionsContainer {
+    background-color: #333;
+}
+
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.8em;
+    color: #888;
+}
+
+.dark-mode footer {
+    color: #aaa;
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+.dark-mode .toast {
+    background-color: #555;
+}

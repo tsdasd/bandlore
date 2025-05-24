@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surreal Band Lore Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+    <h1>Surreal Band Lore Generator</h1>
+    
+    <div class="input-container">
+        <input type="text" id="bandNameInput" placeholder="Enter a band name..." />
+        <button id="generateButton">Generate Surreal Band Lore</button>
+    </div>
+    
+    <div id="loadingIndicator" class="loading" style="display: none;">
+        <div class="loading-text">Channeling interdimensional frequencies...</div>
+        <div class="loading-animation">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+    </div>
+    
+    <div id="outputContainer"></div>
+    
+    <div id="controls" class="controls" style="display: none;">
+        <button id="saveButton">Save as Image</button>
+        <button id="shareButton">Share Options</button>
+        <button id="coverButton">Generate Album Cover</button>
+        <button id="audioButton">Generate Audio Sample</button>
+    </div>
+    
+    <div id="albumCoverContainer" style="display: none;"></div>
+    <div id="audioSampleContainer" style="display: none;"></div>
+    <div id="shareOptionsContainer" style="display: none;"></div>
+    
+    <footer>
+        <p>Created for fun and musical inspiration. Share with friends, bandmates, or anyone who needs a creative spark!</p>
+    </footer>
+
+    <script src="lore-generator.js"></script>
+    <script src="audio-generator.js"></script>
+    <script src="cover-generator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
